@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Outfit:wght@300;400;500;600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Outfit", sans-serif;
+  overflow-x: clip;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@layer base {
+  :root {
+    --background: 150 12% 5%;
+    --foreground: 100 12% 94%;
+    --card: 150 10% 8%;
+    --card-foreground: 100 12% 94%;
+    --popover: 150 10% 8%;
+    --popover-foreground: 100 12% 94%;
+    --primary: 142 72% 55%;
+    --primary-foreground: 150 30% 6%;
+    --secondary: 150 8% 13%;
+    --secondary-foreground: 100 12% 94%;
+    --muted: 150 8% 13%;
+    --muted-foreground: 140 8% 65%;
+    --accent: 20 90% 62%;
+    --accent-foreground: 150 30% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 145 15% 16%;
+    --input: 145 15% 16%;
+    --ring: 142 72% 55%;
+    --radius: 1rem;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: "Chakra Petch", sans-serif; }
+  .glow-text { text-shadow: 0 0 8px hsl(142 72% 55% / 0.55), 0 0 28px hsl(142 72% 45% / 0.35); }
+  .glow-text-warm { text-shadow: 0 0 10px hsl(20 90% 62% / 0.5), 0 0 30px hsl(20 90% 55% / 0.3); }
+  .glow-ring { box-shadow: 0 0 0 1px hsl(142 60% 45% / 0.35), 0 0 30px -8px hsl(142 72% 45% / 0.45); }
+  .haze {
+    background:
+      radial-gradient(60% 50% at 20% 0%, hsl(142 60% 30% / 0.28), transparent 70%),
+      radial-gradient(50% 40% at 90% 20%, hsl(20 80% 45% / 0.16), transparent 70%);
+  }
+  .grid-floor {
+    background-image:
+      linear-gradient(hsl(142 60% 45% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(142 60% 45% / 0.08) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee-x 28s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
